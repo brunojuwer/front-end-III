@@ -21,17 +21,18 @@
             </div>
         </section>
     </header>
-    <main id="container"></main>
-    <nav id="pages-container">
-        <i class="ph-fill ph-arrow-fat-left"></i>
-        <button class="arrow-page-button" onclick="getPreviousPage()">Anterior</button>
-        <span id="pages">
-        </span>
-        <button class="arrow-page-button" onclick="getNextPage()">Próxima</button>
-        <i class="ph-fill ph-arrow-fat-right"></i>
-    </nav>
+    <div class="wrapper">
+        <main id="container"></main>
+        <nav id="pages-container">
+            <i class="ph-fill ph-arrow-fat-left"></i>
+            <button class="arrow-page-button" onclick="getPreviousPage()">Anterior</button>
+            <span id="pages">
+            </span>
+            <button class="arrow-page-button" onclick="getNextPage()">Próxima</button>
+            <i class="ph-fill ph-arrow-fat-right"></i>
+        </nav>
+    </div>
     <footer>
-        <img src="./assets/rick-and-morty.png" alt="Imagem de Rick e Morty">
         <div>
             <section id="api-info">
                 <p>PERSONAGENS: <span data-count-characters="">0</span></p>

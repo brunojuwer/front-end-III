@@ -23,23 +23,22 @@ async function apiDataLoader(page = 1) {
 function mountCard(image, name, status, species, location, episode) {
   return `
   <article class="card">
-  <img class="character-image" src="${image}" alt="Character image">
-  <div class="character-info">
-      <div>
-          <h2>${name}</h2>
-          <h3><span class="status ${status}"></span>${translateStatus(status)} - ${translateSpeciesName(species)}</h3>
-      </div>
-      <div>
-          <p>Última localização conhecida:</p>
-          <h3>${location.name}</h3>
-      </div>
-      <div>
-          <p>Visto a última vez em:</p>
-          <h3>${episode}</h3>
-      </div>
-  </div>
-</article>
-  `;
+    <img class="character-image" src="${image}" alt="Character image">
+    <div class="character-info">
+        <div>
+            <h2>${name}</h2>
+            <h3><span class="status ${status}"></span>${translateStatus(status)} - ${translateSpeciesName(species)}</h3>
+        </div>
+        <div>
+            <p>Última localização conhecida:</p>
+            <h3>${location.name}</h3>
+        </div>
+        <div>
+            <p>Visto a última vez em:</p>
+            <h3>${episode}</h3>
+        </div>
+    </div>
+  </article>`;
 }
 
 async function fetchLastSeenEpisode(episodes) {
@@ -52,25 +51,21 @@ async function fetchCharactersByPage(url){
     const response = await axios.get(url);
     const characters = response.data.results;
 
-    changePageContextData(
-      response.data.info.pages,
-      response.data.info.prev,
-      response.data.info.next,
-    );
-    changePagesToShow();
-    addNumberPages();
+    // changePageContextData(
+    //   response.data.info.pages,
+    //   response.data.info.prev,
+    //   response.data.info.next,
+    // );
+    // changePagesToShow();
+    // addNumberPages();
     
     container.innerHTML = "";
-    let = counter = 1
-    characters.forEach( async ({name, status, location, image, episode, species}) => {
-      const episodeName = (await fetchLastSeenEpisode(episode)).data.name;
-      if(counter % 2 === 0 && counter !== characters.length) {
-        container.innerHTML += mountCard(image, name, status, species, location, episodeName);
-        container.innerHTML += `<div class="separator"></div>`;
-      } else {
-        container.innerHTML += mountCard(image, name, status, species, location, episodeName);
+    characters.forEach( async ({name, status, location, image, episode, species}, index) => {
+      if(index >= 6) {
+        return;
       }
-      counter++;
+        const episodeName = (await fetchLastSeenEpisode(episode)).data.name;
+        container.innerHTML += mountCard(image, name, status, species, location, episodeName);
     });
   } catch(error) {
     renderError("Não foi possível encontrar os personagens!");

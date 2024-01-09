@@ -24,12 +24,15 @@
 }
 
 body {
-  background: var(--gray-100);
+  background-color: var(--dark-primary);
 }
 
 header {
-  background-color: var(--dark-primary);
+  background-color: black;
   padding: 1rem;
+  padding-bottom: 4rem;
+  border-bottom-right-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
 
 svg.top-icon {
@@ -45,7 +48,7 @@ svg.top-icon {
 
 #input-container > h1 {
   font-size: 2.75rem;
-  color: var(--gray-100);
+  color: var(--green-primary);
   line-height: 1.6;
 }
 
@@ -54,7 +57,7 @@ svg.top-icon {
   justify-content: space-between;
   background-color: var(--gray-100);
   margin-top: 2rem;
-  border: var(--gray-200) 2px solid;
+  border: var(--gray-400) 2px solid;
   padding: 1rem;
   width: 100%;
   border-radius: 8px;
@@ -79,42 +82,51 @@ svg.top-icon {
   border: var(--green-primary) 2px solid;
 }
 
+.wrapper {
+  background: url('./assets/fundo_rm.jpg') no-repeat;
+  height: 1987px;
+}
+
 #container { 
   width: 100%;
   max-width: 1200px;
-  margin: 2rem auto;
+  margin: 0 auto;
   border-radius: 10px;
-  padding: 2rem;
+  padding: 6rem 2rem 2rem 2rem;
 
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: center;
   gap: 3rem;
-}
-
-.separator {
-  grid-column: span 2;
-  border-bottom: 2px solid var(--green-primary);
 }
 
 .card {
   border-radius: 10px;
-  min-width: 450px;
-  background-color: var(--dark-primary);
+  max-width: 300px;
+  background-color: var(--dark-secondary);
   display: flex;
-  gap: 1rem;
+  flex-direction: column;
+  gap: 0.75rem;
+  cursor: pointer;
+  transition: ease-out 200ms transform;
+  border: solid 2px var(--green-primary);
+}
+
+.card:hover {
+  transform: translateY(-3%);
 }
 
 .character-image {
-  border-top-left-radius: 10px;
-  border-bottom-left-radius: 10px;
-  width: 200px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
 }
 
 .character-info {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  gap: 1rem;
+  padding: 0.75rem;
 }
 
 .character-info h2 {
@@ -175,6 +187,7 @@ svg.top-icon {
 }
 
 #pages-container {
+  margin-top: 3rem;
   display: flex;
   justify-content: center;
   gap: 1.75rem;
@@ -244,14 +257,8 @@ svg.top-icon {
   opacity: 1;
 }
 
-footer img {
-  display: block;
-  width: 400px;
-  margin: 1rem auto;
-}
-
 footer div {
-  background-color: var(--dark-primary);
+  background-color: black;
   padding: 2rem;
 }
 
