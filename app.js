@@ -22,7 +22,7 @@ async function apiDataLoader(page = 1) {
 
 function mountCard(image, name, status, species, location, episode) {
   return `
-  <article class="card">
+  <article class="character-card">
     <img class="character-image" src="${image}" alt="Character image">
     <div class="character-info">
         <div>
@@ -51,13 +51,13 @@ async function fetchCharactersByPage(url){
     const response = await axios.get(url);
     const characters = response.data.results;
 
-    // changePageContextData(
-    //   response.data.info.pages,
-    //   response.data.info.prev,
-    //   response.data.info.next,
-    // );
-    // changePagesToShow();
-    // addNumberPages();
+    changePageContextData(
+      response.data.info.pages,
+      response.data.info.prev,
+      response.data.info.next,
+    );
+    changePagesToShow();
+    addNumberPages();
     
     container.innerHTML = "";
     characters.forEach( async ({name, status, location, image, episode, species}, index) => {

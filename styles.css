@@ -31,8 +31,6 @@ header {
   background-color: black;
   padding: 1rem;
   padding-bottom: 4rem;
-  border-bottom-right-radius: 8px;
-  border-bottom-left-radius: 8px;
 }
 
 svg.top-icon {
@@ -100,7 +98,7 @@ svg.top-icon {
   gap: 3rem;
 }
 
-.card {
+.character-card {
   border-radius: 10px;
   max-width: 300px;
   background-color: var(--dark-secondary);
@@ -112,7 +110,7 @@ svg.top-icon {
   border: solid 2px var(--green-primary);
 }
 
-.card:hover {
+.character-card:hover {
   transform: translateY(-3%);
 }
 
@@ -125,8 +123,8 @@ svg.top-icon {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 1rem;
-  padding: 0.75rem;
+  gap: 0.5rem;
+  padding: 1rem 1.25rem;
 }
 
 .character-info h2 {
@@ -187,7 +185,7 @@ svg.top-icon {
 }
 
 #pages-container {
-  margin-top: 3rem;
+  margin-top: 2rem;
   display: flex;
   justify-content: center;
   gap: 1.75rem;
@@ -257,7 +255,7 @@ svg.top-icon {
   opacity: 1;
 }
 
-footer div {
+footer {
   background-color: black;
   padding: 2rem;
 }
@@ -266,10 +264,12 @@ footer div {
   display: flex;
   justify-content: center;
   gap: 1.75rem;
+  margin-top: 3.25rem;
+  margin-bottom: 6.25rem;
 }
 
 #api-info p {
-  color: var(--gray-300);
+  color: var(--green-primary);
   font-weight: 600;
 }
 
@@ -281,6 +281,11 @@ footer div {
   text-align: center;
   margin-top: 3rem;
   color: var(--gray-300);
+}
+
+#developer-info span {
+  color: var(--green-primary);
+  font-weight: 700;
 }
 
 #errorContainer {
