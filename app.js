@@ -43,13 +43,21 @@ function mountCard(image, name, status, species, location, episode) {
   </div>`;
 }
 
+function getLoading() {
+  return `<div class="d-flex align-items-center justify-content-center gap-2">
+  <span class="spinner-grow spinner-grow-sm bg-primary" aria-hidden="true"></span>
+  <span class="text-white" role="status">Buscando...</span>
+  </div>`;
+}
+
 async function fetchLastSeenEpisode(episodes) {
   return (await axios.get(episodes[episodes.length - 1]));
 }
 
 async function fetchCharactersByPage(url){
   try {
-    container.innerHTML = '<div class="loader"></div>';
+    container.innerHTML = getLoading();
+
     const response = await axios.get(url);
     const characters = response.data.results;
 
