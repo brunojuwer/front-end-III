@@ -29,11 +29,11 @@ function mountCard(image, name, status, species, location, episode) {
             <h2>${name}</h2>
             <h3><span class="status ${status}"></span>${translateStatus(status)} - ${translateSpeciesName(species)}</h3>
         </div>
-        <div>
+        <div class="last-location">
             <p>Última localização conhecida:</p>
             <h3>${location.name}</h3>
         </div>
-        <div>
+        <div class="last-seen">
             <p>Visto a última vez em:</p>
             <h3>${episode}</h3>
         </div>
@@ -51,13 +51,13 @@ async function fetchCharactersByPage(url){
     const response = await axios.get(url);
     const characters = response.data.results;
 
-    changePageContextData(
-      response.data.info.pages,
-      response.data.info.prev,
-      response.data.info.next,
-    );
-    changePagesToShow();
-    addNumberPages();
+    // changePageContextData(
+    //   response.data.info.pages,
+    //   response.data.info.prev,
+    //   response.data.info.next,
+    // );
+    // changePagesToShow();
+    // addNumberPages();
     
     container.innerHTML = "";
     characters.forEach( async ({name, status, location, image, episode, species}, index) => {
