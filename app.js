@@ -22,23 +22,25 @@ async function apiDataLoader(page = 1) {
 
 function mountCard(image, name, status, species, location, episode) {
   return `
-  <article class="character-card">
-    <img class="character-image" src="${image}" alt="Character image">
-    <div class="character-info">
-        <div>
-            <h2>${name}</h2>
-            <h3><span class="status ${status}"></span>${translateStatus(status)} - ${translateSpeciesName(species)}</h3>
-        </div>
-        <div class="last-location">
-            <p>Última localização conhecida:</p>
-            <h3>${location.name}</h3>
-        </div>
-        <div class="last-seen">
-            <p>Visto a última vez em:</p>
-            <h3>${episode}</h3>
-        </div>
-    </div>
-  </article>`;
+  <div class="col-xl-4 col-md-6">
+    <article class="m-auto character-card" data-bs-toggle="modal" data-bs-target="#character-details-modal">
+        <img class="character-image" src="${image}" alt="Character image">
+        <div class="character-info">
+            <div>
+                <h2 class="user-select-none">${name}</h2>
+                <h3 class="user-select-none"><span class="status ${status}"></span>${translateStatus(status)} - ${translateSpeciesName(species)}</h3>
+            </div>
+            <div class="last-location">
+                <p class="user-select-none">Última localização conhecida:</p>
+                <h3 class="user-select-none">${location.name}</h3>
+            </div>
+            <div class="last-seen">
+                <p class="user-select-none">Visto a última vez em:</p>
+                <h3 class="user-select-none">${episode}</h3>
+            </div>
+          </div>
+    </article>
+  </div>`;
 }
 
 async function fetchLastSeenEpisode(episodes) {

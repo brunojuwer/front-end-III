@@ -85,20 +85,6 @@ svg.top-icon {
   height: 1987px;
 }
 
-#container { 
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  border-radius: 10px;
-  padding: 6rem 2rem 2rem 2rem;
-
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  place-items: center;
-
-  gap: 3rem;
-}
-
 .character-card {
   border-radius: 10px;
   max-width: 300px;
@@ -261,14 +247,6 @@ footer {
   padding: 2rem;
 }
 
-#api-info {
-  display: flex;
-  justify-content: center;
-  gap: 1.75rem;
-  margin-top: 3.25rem;
-  margin-bottom: 6.25rem;
-}
-
 #api-info p {
   color: var(--green-primary);
   font-weight: 600;
@@ -304,49 +282,7 @@ footer {
   font-size: 3rem;
 }
 
-@media (max-width: 996px) {
-  #container {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-  }
-}
-
 @media (max-width: 768px) {
-  #container {
-    grid-template-columns: repeat(1, 1fr);
-    gap: 2rem;
-  }
-
-  .wrapper {
-    background: var(--dark-secondary);
-  }
-
-  .character-card {
-    max-width: 580px;
-    max-height: 300px;
-    flex-direction: row;
-    gap: 0.75rem;
-    width: 100%;
-  }
-
-  .character-image {
-    border-top-left-radius: 8px;
-    border-top-right-radius: 0;
-    border-bottom-left-radius: 8px;
-    width: 240px;
-  }
-  
-  .character-info {
-    gap: 0.25rem;
-    padding: .25rem .75rem;
-  }
-  
-  .character-info h2 {
-    font-size: 1.25rem;
-  }
-}
-
-@media (max-width: 620px) {
   .character-card {
     max-width: 500px;
     max-height: 300px;
@@ -363,44 +299,25 @@ footer {
   }
   
   .character-info h2 {
-    font-size: 1rem;
+    font-size: 1.13rem;
   }
 
   .character-info h3 {
-    font-size: 0.875rem;
+    font-size: 1rem;
     line-height: 1.6;
+    margin-bottom: 0;
   }
 
   .character-info p {
-    font-size: 0.75rem;
+    font-size: 1rem;
+    margin-bottom: 0;
   }
 }
 
-@media (max-width: 550px) {
-  .character-card {
-    max-width: 400px;
-    max-height: 200px;
-  }
-
-  .character-image {
-    width: 150px;
-    height: 195px;
-  }
-  
-  .character-info h2 {
-    font-size: .97rem;
-  }
-
-  .character-info h3 {
-    font-size: 0.75rem;
-    line-height: 1.2;
-  }
-}
-
-@media (max-width: 550px) {
+@media (max-width: 470px) {
 
   .character-card {
-    max-width: 350px;
+    max-width: 380px;
     max-height: 150px;
   }
 
@@ -418,8 +335,9 @@ footer {
     line-height: 1.2;
   }
 
-  .last-location {
-    display: none;
+  .last-location p {
+    font-size: .75rem;
+    margin-bottom: 0.2rem;
   }
 
   .last-seen {
