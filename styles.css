@@ -190,6 +190,12 @@ svg.top-icon {
   background-color: var(--gray-400);
 }
 
+.page-section {
+  width: 16px !important;
+  height: 16px !important;
+  cursor: pointer;
+}
+
 #pages-container {
   margin-top: 2rem;
   display: flex;

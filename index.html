@@ -28,11 +28,35 @@
     </section>
   </header>
   <div class="wrapper container-fluid justify-content-center">
-    <main class="container">
+    <main class="container" style="max-width: 1140px;">
       <div id="container" class="pt-5 row g-5">
       </div>
 
+      <nav class="container mt-5" style="max-width: 200px;">
+        <div class="d-flex justify-content-evenly">
+          <input type="radio" name="section" class="bg-light page-section" id="section1" onclick="populateContainer(1)" type="button"></input>
+          <input type="radio" name="section" class="bg-light page-section" id="section2" onclick="populateContainer(2)" type="button"></input>
+          <input type="radio" name="section" class="bg-light page-section" id="section3" onclick="populateContainer(3)" type="button"></input>
+          <input type="radio" name="section" class="bg-light page-section" id="section4" onclick="populateContainer(4)" type="button"></input>
+        </div>
+      </nav>
     </main>
+
+    <nav aria-label="..." class="container mt-5"> 
+      <ul class="pagination justify-content-center">
+        <li class="page-item disabled">
+          <span class="page-link bg-black border-0">Anterior</span>
+        </li>
+        <li class="page-item"><a class="page-link bg-black border-0" href="#">1</a></li>
+        <li class="page-item active" aria-current="page">
+          <span class="page-link bg-black border-0">2</span>
+        </li>
+        <li class="page-item"><a class="page-link bg-black border-0" href="#">3</a></li>
+        <li class="page-item">
+          <a class="page-link bg-black border-0" href="#">Próximo</a>
+        </li>
+      </ul>
+    </nav>
     <!-- <nav id="pages-container">
             <i class="ph-fill ph-arrow-fat-left"></i>
             <button class="arrow-page-button" onclick="getPreviousPage()">Anterior</button>

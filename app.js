@@ -117,6 +117,62 @@ async function getSingleCharacter(id) {
   );
 }
 
+
+function divideArray(originalArray) {
+  const result = {
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+  };
+
+  let currentIndex = 1;
+  let currentSubarray = result[currentIndex];
+
+  originalArray.forEach(item => {
+      currentSubarray.push(item);
+
+      if (currentSubarray.length === 6) {
+          currentIndex++;
+          currentSubarray = result[currentIndex] = [];
+      }
+  });
+
+  return result;
+}
+
+var dividedObject = {}
+
+let selectedSection = 1
+function setCurrentSection(section) {
+     selectedSection = section;
+
+     section1.classList.toggle('active-section')
+     section2.classList.toggle('active-section')
+     section3.classList.toggle('active-section')
+     section4.classList.toggle('active-section')
+}
+
+async function populateContainer(number = 1) {
+  container.innerHTML = "";
+  dividedObject[number].forEach(
+    async ({ id, name, status, location, image, episode, species }) => {
+      const episodeName = (await fetchLastSeenEpisode(episode)).data.name;
+      container.innerHTML += mountCard(
+        id,
+        image,
+        name,
+        status,
+        species,
+        location,
+        episodeName
+      );
+    }
+  );
+  setCurrentSection(number);
+}
+
+
 async function fetchCharactersByPage(url) {
   try {
     container.innerHTML = getLoading();
@@ -132,27 +188,10 @@ async function fetchCharactersByPage(url) {
     // changePagesToShow();
     // addNumberPages();
 
-    container.innerHTML = "";
-    characters.forEach(
-      async (
-        { id, name, status, location, image, episode, species },
-        index
-      ) => {
-        if (index >= 6) {
-          return;
-        }
-        const episodeName = (await fetchLastSeenEpisode(episode)).data.name;
-        container.innerHTML += mountCard(
-          id,
-          image,
-          name,
-          status,
-          species,
-          location,
-          episodeName
-        );
-      }
-    );
+    dividedObject = divideArray(characters);
+    populateContainer();
+    
+    
   } catch (error) {
     renderError("Não foi possível encontrar os personagens!");
     document.getElementById("pages-container").style.display = "none";
