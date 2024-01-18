@@ -294,7 +294,17 @@ footer {
   }
 }
 
+@media (max-width: 540px) {
+  #input-container #main-title {
+    font-size: 2rem;
+  }
+}
+
 @media (max-width: 470px) {
+
+  #input-container #main-title {
+    font-size: 1.875rem;
+  }
 
   .character-card {
     max-width: 380px;
