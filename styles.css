@@ -191,8 +191,9 @@ svg.top-icon {
 }
 
 .page-section {
-  width: 40px !important;
-  height: 40px !important;
+  width: 16px !important;
+  height: 16px !important;
+  cursor: pointer;
 }
 
 #pages-container {
