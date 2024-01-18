@@ -117,6 +117,31 @@ async function getSingleCharacter(id) {
   );
 }
 
+
+function divideArray(originalArray) {
+  const result = {
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+  };
+
+  let currentIndex = 1;
+  let currentSubarray = result[currentIndex];
+
+  originalArray.forEach(item => {
+      currentSubarray.push(item);
+
+      if (currentSubarray.length === 6) {
+          currentIndex++;
+          currentSubarray = result[currentIndex] = [];
+      }
+  });
+
+  return result;
+}
+
+
 async function fetchCharactersByPage(url) {
   try {
     container.innerHTML = getLoading();
@@ -132,8 +157,10 @@ async function fetchCharactersByPage(url) {
     // changePagesToShow();
     // addNumberPages();
 
+    const dividedObject = divideArray(characters);
+
     container.innerHTML = "";
-    characters.forEach(
+    dividedObject[1].forEach(
       async (
         { id, name, status, location, image, episode, species },
         index
