@@ -33,38 +33,39 @@
       </div>
 
       <nav class="container mt-5" style="max-width: 200px;">
-        <div class="d-flex justify-content-evenly">
-          <input type="radio" name="section" class="bg-light page-section" id="section1" onclick="populateContainer(1)" type="button"></input>
-          <input type="radio" name="section" class="bg-light page-section" id="section2" onclick="populateContainer(2)" type="button"></input>
-          <input type="radio" name="section" class="bg-light page-section" id="section3" onclick="populateContainer(3)" type="button"></input>
-          <input type="radio" name="section" class="bg-light page-section" id="section4" onclick="populateContainer(4)" type="button"></input>
+        <div class="d-flex justify-content-evenly" id="sectionsContainer">
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" onclick="populateContainer(1)" id="section1" checked>
+            <label class="form-check-label" for="section1"></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" onclick="populateContainer(2)" id="section2">
+            <label class="form-check-label" for="section2"></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" onclick="populateContainer(3)" id="section3">
+            <label class="form-check-label" for="section3"></label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="flexRadioDefault" onclick="populateContainer(4)" id="section4">
+            <label class="form-check-label" for="section4"></label>
+          </div>
         </div>
-      </nav>
     </main>
 
     <nav aria-label="..." class="container mt-5"> 
       <ul class="pagination justify-content-center">
-        <li class="page-item disabled">
-          <span class="page-link bg-black border-0">Anterior</span>
-        </li>
-        <li class="page-item"><a class="page-link bg-black border-0" href="#">1</a></li>
-        <li class="page-item active" aria-current="page">
-          <span class="page-link bg-black border-0">2</span>
-        </li>
-        <li class="page-item"><a class="page-link bg-black border-0" href="#">3</a></li>
         <li class="page-item">
-          <a class="page-link bg-black border-0" href="#">Próximo</a>
+          <span class="page-link bg-black border-0" onclick="getPreviousPage()">Anterior</span>
+        </li>
+        <li class="page-item bg-black" aria-current="page">
+          <span class="page-link bg-black border-0 text-success current-page">1</span>
+        </li>
+        <li class="page-item">
+          <span class="page-link bg-black border-0" onclick="getNextPage()">Próximo</span>
         </li>
       </ul>
     </nav>
-    <!-- <nav id="pages-container">
-            <i class="ph-fill ph-arrow-fat-left"></i>
-            <button class="arrow-page-button" onclick="getPreviousPage()">Anterior</button>
-            <span id="pages">
-            </span>
-            <button class="arrow-page-button" onclick="getNextPage()">Próxima</button>
-            <i class="ph-fill ph-arrow-fat-right"></i>
-        </nav> -->
   </div>
   <footer class="container-fluid">
     <section id="api-info" class="row m-auto" style="max-width: 550px;">

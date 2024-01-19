@@ -143,16 +143,6 @@ function divideArray(originalArray) {
 
 var dividedObject = {}
 
-let selectedSection = 1
-function setCurrentSection(section) {
-     selectedSection = section;
-
-     section1.classList.toggle('active-section')
-     section2.classList.toggle('active-section')
-     section3.classList.toggle('active-section')
-     section4.classList.toggle('active-section')
-}
-
 async function populateContainer(number = 1) {
   container.innerHTML = "";
   dividedObject[number].forEach(
@@ -169,9 +159,9 @@ async function populateContainer(number = 1) {
       );
     }
   );
-  setCurrentSection(number);
+  window.scrollTo(0, 0);
+  
 }
-
 
 async function fetchCharactersByPage(url) {
   try {
@@ -180,13 +170,11 @@ async function fetchCharactersByPage(url) {
     const response = await axios.get(url);
     const characters = response.data.results;
 
-    // changePageContextData(
-    //   response.data.info.pages,
-    //   response.data.info.prev,
-    //   response.data.info.next,
-    // );
-    // changePagesToShow();
-    // addNumberPages();
+    changePageContextData(
+      response.data.info.pages,
+      response.data.info.prev,
+      response.data.info.next,
+    );
 
     dividedObject = divideArray(characters);
     populateContainer();
@@ -194,7 +182,6 @@ async function fetchCharactersByPage(url) {
     
   } catch (error) {
     renderError("Não foi possível encontrar os personagens!");
-    document.getElementById("pages-container").style.display = "none";
   }
 }
 fetchCharactersByPage(charactersURL);
