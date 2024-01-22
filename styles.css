@@ -196,37 +196,6 @@ svg.top-icon {
   cursor: pointer;
 }
 
-#pages-container {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.75rem;
-}
-
-#pages {
-  display: flex;
-  gap: 0.875rem;
-}
-
-.button-page {
-  background-color: var(--blue-primary);
-  opacity: 0.6;
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-  color: var(--gray-100);
-  font-size: 1rem;
-  cursor: pointer;
-  transition: ease 200ms transform;
-}
-
-.button-page:hover {
-  transform: translateY(-10%);
-}
-
-.current-page {
-  opacity: 1;
-}
 
 footer {
   background-color: black;
@@ -262,10 +231,6 @@ footer {
   color: var(--red-primary);
   font-weight: 700;
   font-size: 1.875rem;
-}
-
-.ph-smiley-sad {
-  font-size: 3rem;
 }
 
 @media (max-width: 768px) {

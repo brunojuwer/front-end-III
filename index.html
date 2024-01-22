@@ -12,7 +12,7 @@
   <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 
-<body>
+<body style="background-color: #252525;">
   <header>
     <svg onclick="location.reload()" class="top-icon bounce-animation mt-2" width="40" height="40" viewBox="0 0 50 50" fill="white">
       <path
@@ -29,7 +29,7 @@
   </header>
   <div class="wrapper container-fluid justify-content-center">
     <main class="container" style="max-width: 1140px;">
-      <div id="container" class="pt-5 row g-5">
+      <div id="container" class="pt-2 row g-5">
       </div>
 
       <nav class="container mt-5" style="max-width: 200px;">
@@ -53,7 +53,7 @@
         </div>
     </main>
 
-    <nav aria-label="..." class="container mt-5"> 
+    <nav aria-label="..." class="container mt-5 pages-container"> 
       <ul class="pagination justify-content-center">
         <li class="page-item">
           <span class="page-link bg-black border-0 pointer" onclick="getPreviousPage()">Anterior</span>
@@ -67,7 +67,7 @@
       </ul>
     </nav>
   </div>
-  <footer class="container-fluid">
+  <footer class="container-fluid mt-5">
     <section id="api-info" class="row m-auto" style="max-width: 550px;">
       <p class="col-sm-4 text-center">PERSONAGENS: <span data-count-characters="">0</span></p>
       <p class="col-sm-4 text-center">LOCALIZAÇÕES: <span data-count-locations>0</span></p>
