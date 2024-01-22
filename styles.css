@@ -342,7 +342,7 @@ footer {
 }
 
 .rotate-and-pulse-animation {
-  animation: rotate-element 1s ease 1, pulse 2s linear infinite 2s;
+  animation: rotate-element 1s ease 1, pulse 2s linear infinite 1s;
 }
 
 .bounce-animation {
