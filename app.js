@@ -103,7 +103,7 @@ async function getSingleCharacter(id) {
   const response = await axios.get(character + `/${id}`);
   const { image, name, status, species, location, gender, origin, episode} = response.data;
   
-  const episodeName = await fetchLastSeenEpisode(episode);
+  const episodeName = fetchLastSeenEpisode(episode);
   modalContent.innerHTML = mountCardModal(
     id,
     image,
@@ -146,21 +146,22 @@ var dividedObject = {}
 async function populateContainer(number = 1) {
   container.innerHTML = "";
   dividedObject[number].forEach(
-    async ({ id, name, status, location, image, episode, species }) => {
-      const episodeName = (await fetchLastSeenEpisode(episode)).data.name;
-      container.innerHTML += mountCard(
-        id,
-        image,
-        name,
-        status,
-        species,
-        location,
-        episodeName
-      );
+    async ({ id, name, status, location, image, episode, species }, index) => {
+      if(index < 6) {
+        const episodeName = (await fetchLastSeenEpisode(episode)).data.name;
+        container.innerHTML += mountCard(
+          id,
+          image,
+          name,
+          status,
+          species,
+          location,
+          episodeName
+        );
+      }
     }
   );
   window.scrollTo(0, 0);
-  
 }
 
 async function fetchCharactersByPage(url) {
