@@ -103,7 +103,7 @@ async function getSingleCharacter(id) {
   const response = await axios.get(character + `/${id}`);
   const { image, name, status, species, location, gender, origin, episode} = response.data;
   
-  const episodeName = fetchLastSeenEpisode(episode);
+  const episodeName = await fetchLastSeenEpisode(episode);
   modalContent.innerHTML = mountCardModal(
     id,
     image,
