@@ -53,7 +53,7 @@ function mountCard(id, image, name, status, species, location, episode) {
 }
 function mountCardModal(id, image, name, gender, origin, status, species, location, episode) {
   return `
-  <div class="container-fluid">
+  <div class="container-fluid overflow-hidden">
     <article 
       class="m-auto row justify-content-center" 
       data-bs-toggle="modal" 
@@ -66,7 +66,7 @@ function mountCardModal(id, image, name, gender, origin, status, species, locati
           src="${image}"
           alt="Character image"
         >
-        <div class="row justify-content-center text-white">
+        <div class="row justify-content-center text-white show-text-animation mt-3">
             <div class="text-center">
                 <h2 class="user-select-none fs-4 fw-bold my-4 placeholder-wave">${name}</h2>
                 
