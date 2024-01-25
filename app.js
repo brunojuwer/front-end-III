@@ -164,6 +164,20 @@ async function populateContainer(number = 1) {
   window.scrollTo(0, 0);
 }
 
+function renderSlides() {
+  sectionsContainer.innerHTML = "";
+  for (let i = 1; i <= 4 ; i++) {
+    if(dividedObject[i].length > 0) {
+      sectionsContainer.innerHTML += `<div class="form-check">
+      <input class="form-check-input pointer" type="radio" name="flexRadioDefault" onclick="populateContainer(${i})" id="section${i}" 
+      ${i === 1 ? 'checked' : ""}
+      >
+      <label class="form-check-label" for="section${i}"></label>
+      </div>`
+    }
+  }
+}
+
 async function fetchCharactersByPage(url) {
   try {
     container.innerHTML = getLoading();
@@ -178,6 +192,7 @@ async function fetchCharactersByPage(url) {
     );
 
     dividedObject = divideArray(characters);
+    renderSlides();
     populateContainer();
     
     
@@ -186,6 +201,7 @@ async function fetchCharactersByPage(url) {
   }
 }
 fetchCharactersByPage(charactersURL);
+
 
 function getCharactersByName(e) {
   const name = e.target.value;

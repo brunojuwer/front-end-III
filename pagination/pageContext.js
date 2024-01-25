@@ -41,8 +41,17 @@ function changePageContextData(total, previous, next) {
   }
 
   toogleStatusPageButton()
+  populateAllPages();
 
   document.querySelector(".current-page").innerText = pageContext.currentPage;
+}
+
+
+function populateAllPages() {
+  allPages.innerHTML = "";
+  for (let i = 1; i <= pageContext.totalPages; i++) {
+    allPages.innerHTML += `<li><button class="dropdown-item text-success" onclick="getSpecificPage(${i})">${i}</button></li>`
+  }
 }
 
 function toogleStatusPageButton() {
