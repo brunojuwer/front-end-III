@@ -56,13 +56,13 @@
     <nav aria-label="..." class="container mt-5 pages-container"> 
       <ul class="pagination justify-content-center">
         <li class="page-item">
-          <span class="page-link bg-black border-0 pointer" onclick="getPreviousPage()">Anterior</span>
+          <span id="previousPageButton" class="page-link bg-black border-0 pointer" onclick="getPreviousPage()">Anterior</span>
         </li>
         <li class="page-item bg-black" aria-current="page">
           <span class="page-link bg-black border-0 text-success current-page">1</span>
         </li>
         <li class="page-item">
-          <span class="page-link bg-black border-0 pointer" onclick="getNextPage()">Próximo</span>
+          <span id="nextPageButton" class="page-link bg-black border-0 pointer" onclick="getNextPage()">Próximo</span>
         </li>
       </ul>
     </nav>
