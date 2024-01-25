@@ -22,7 +22,7 @@ async function apiDataLoader(page = 1) {
   };
 }
 
-function mountCard(id, image, name, status, species, location, episode) {
+function mountCard(id, image, name, status, species, location) {
   return `
   <div class="col-xl-4 col-md-6">
     <article 
@@ -35,7 +35,7 @@ function mountCard(id, image, name, status, species, location, episode) {
         <div class="character-info">
             <div>
                 <h2 class="user-select-none">${name}</h2>
-                <h3 class="user-select-none"><span class="status ${status}"></span>${translateStatus(
+                <h3 class="user-select-none mt-3"><span class="status ${status}"></span>${translateStatus(
     status
   )} - ${translateSpeciesName(species)}</h3>
             </div>
@@ -43,14 +43,13 @@ function mountCard(id, image, name, status, species, location, episode) {
                 <p class="user-select-none">Última localização conhecida:</p>
                 <h3 class="user-select-none">${location.name}</h3>
             </div>
-            <div class="last-seen">
-                <p class="user-select-none">Visto a última vez em:</p>
-                <h3 class="user-select-none">${episode}</h3>
-            </div>
+            
           </div>
     </article>
   </div>`;
 }
+
+
 function mountCardModal(id, image, name, gender, origin, status, species, location, episode) {
   return `
   <div class="container-fluid overflow-hidden">
@@ -143,22 +142,17 @@ function divideArray(originalArray) {
 
 var dividedObject = {}
 
-async function populateContainer(number = 1) {
+function populateContainer(number = 1) {
   container.innerHTML = "";
-  dividedObject[number].forEach(
-    async ({ id, name, status, location, image, episode, species }, index) => {
-      if(index < 6) {
-        const episodeName = (await fetchLastSeenEpisode(episode)).data.name;
-        container.innerHTML += mountCard(
-          id,
-          image,
-          name,
-          status,
-          species,
-          location,
-          episodeName
-        );
-      }
+  dividedObject[number].forEach(({ id, name, status, location, image, species }) => {
+      container.innerHTML += mountCard(
+        id,
+        image,
+        name,
+        status,
+        species,
+        location
+      );
     }
   );
   window.scrollTo(0, 0);
@@ -194,7 +188,7 @@ async function fetchCharactersByPage(url) {
     dividedObject = divideArray(characters);
     renderSlides();
     populateContainer();
-    
+    console.log(dividedObject)
     
   } catch (error) {
     renderError("Não foi possível encontrar os personagens!");
