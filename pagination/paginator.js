@@ -14,6 +14,16 @@ function getNextPage(){
   }
 }
 
+function getSpecificPage(e) {
+  const page = e;
+  if(pageContext.lastUrl.includes("page")) {
+    const lastPage = extractPageNumber(pageContext.lastUrl);
+    const urlToGet = pageContext.lastUrl.replace(lastPage, page);
+    fetchCharactersByPage(urlToGet);
+    window.scrollTo(0, 0);
+    return;
+  }
+}
 
 function resetSections() {
   section1.checked = true;
