@@ -39,5 +39,21 @@ function changePageContextData(total, previous, next) {
   } else {
     pageContext.lastUrl = pageContext.previousPage
   }
+
+  toogleStatusPageButton()
+
   document.querySelector(".current-page").innerText = pageContext.currentPage;
+}
+
+function toogleStatusPageButton() {
+  if(!pageContext.previousPage) {
+    previousPageButton.classList.add('disabled');
+  } else {
+    previousPageButton.classList.remove('disabled');
+  }
+  if(!pageContext.nextPage) {
+    nextPageButton.classList.add('disabled');
+  } else {
+    nextPageButton.classList.remove('disabled');
+  }
 }
