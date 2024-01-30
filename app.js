@@ -188,7 +188,6 @@ async function fetchCharactersByPage(url) {
     dividedObject = divideArray(characters);
     renderSlides();
     populateContainer();
-    console.log(dividedObject)
     
   } catch (error) {
     renderError("Não foi possível encontrar os personagens!");
